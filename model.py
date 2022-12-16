@@ -197,10 +197,6 @@ def load_model():
 
   del(df_load)
 
-  loss_function = nn.CrossEntropyLoss()
-  
-  optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay = weight_decay)
-
   checkpoint = torch.load('./model.tar')
 
   model.load_state_dict(checkpoint['model_state_dict'])
