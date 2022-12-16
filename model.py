@@ -130,7 +130,7 @@ class ResNet(nn.Module):
 
         return output
 
-def resnet1(channel_init):
+def resnet11(channel_init):
     """ return a ResNet 50 object
     """
     return ResNet(BottleNeck, [1, 1, 1, 1],channel_init)
