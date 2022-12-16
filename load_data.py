@@ -3,11 +3,11 @@ import pandas as pd
 import numpy as np
 
 def load_data() : 
-  df_sudoku = pd.read_csv("/content/drive/MyDrive/A3/CANADA/SYS819/sudoku-9m.csv")
+  df_sudoku = pd.read_csv("/sudoku-9m.csv")
 
-  #Data type changing and reshaping, we keep the first 62500 data, corresponding to the 80 clues only 
-  S_blanked_raw = df_sudoku['quizzes'].values[:62500]
-  S_solved_raw = df_sudoku['solutions'].values[:62500]
+  #Data type changing and reshaping, we keep 2.5 M data only 
+  S_blanked_raw = df_sudoku['puzzle'].values[1:7800001:3]
+  S_solved_raw = df_sudoku['solution'].values[1:7800001:3]
 
 
   #Delete Dataframe to avoid ram overexploitation 
