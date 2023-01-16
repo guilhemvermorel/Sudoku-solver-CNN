@@ -43,9 +43,12 @@ Il existe 3 métriques différentes pour l'évaluation du modèle :
 - `accuracy3` : qui correspond au nombre de sudokus entièrement résolus sur le nombre de sudokus 
 
 ## Résultats
-![accuracy1](\accuracy1_sudoku_9m.png) \
-![accuracy2](\accuracy2_sudoku_9m.png) \
-![accuracy3](\accuracy3_sudoku_9m.png) \
+`accuracy1` : \
+![accuracy1](accuracy1_sudoku_9m.png) \
+`accuracy2` : \
+![accuracy2](accuracy2_sudoku_9m.png) \
+`accuracy3` : \
+![accuracy3](accuracy3_sudoku_9m.png) \
 Pour le test, on utilise une approche différente que pour l'évaluation, une approche plus humaine, on fait tourner le réseau sur une seule case vide à la fois : 
 - `accuracy1 = 0.9545` 
 - `accuracy2 = 0.9226` 
