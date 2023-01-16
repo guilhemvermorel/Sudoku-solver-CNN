@@ -27,9 +27,31 @@ Le modèle utilisé est fortement inspiré du modèle [ResNet50-SPD](https://git
 `model.py` contient le modèle ResNet11-SPD. \
 `train_test_definition.py` défini les foctions d'entraînement, d'évaluation et de test, ainsi que les 3 métriques utilisées pour évaluer le modèle. \
 `train.py` est utilisé pour l'entraînement et l'évaluation durant l'entraînement. \
-`test.py` est utilisé pour le test avec l'approche humaine (cf rapport projet). \
+`test.py` est utilisé pour le test avec l'approche humaine (cf rapport projet). 
 
+## Entraînement 
+Etape 1 : télécharger le dataset [ici](https://www.kaggle.com/datasets/rohanrao/sudoku).
+Etape 2 : lancer l'entraînement du fichier `train.py` ou télécharger directement [le fichier entraîné](https://www.dropbox.com/scl/fo/y6xfwpa7zgkjrb5xgejnd/h?dl=0&rlkey=nosi1f0r57hbp09vjb86oopqr).
 
+## Tests
+Lancer directement le fichier `test.py`
 
+## Métriques d'évaluation
+Il existe 3 métriques différentes pour l'évaluation du modèle : 
+- `accuracy1` : qui correspond au nombre de cases (initialement vides ou pleines) qui ont été correctement identifié par le modèle divisé par le nombre de cases totale. 
+- `accuracy2` : qui correspond au nombre de cases vides qui ont été correctement identifié par le modèle divisé par le nombre de cases vides totale. 
+- `accuracy3` : qui correspond au nombre de sudokus entièrement résolus sur le nombre de sudokus 
+
+## Résultats
+![accuracy1](\accuracy1_sudoku_9m.png) \
+![accuracy2](\accuracy2_sudoku_9m.png) \
+![accuracy3](\accuracy3_sudoku_9m.png) \
+Pour le test, on utilise une approche différente que pour l'évaluation, une approche plus humaine, on fait tourner le réseau sur une seule case vide à la fois : 
+- `accuracy1 = 0.9545` 
+- `accuracy2 = 0.9226` 
+- `accuracy3 = 0.0885`
+
+## Références 
+Mon projet est beaucoup inspiré des travaux de Raja Sunkara et Tie Luo sur le sujet [No More Strided Convolutions or Pooling: A New CNN Building Block for Low-Resolution Images and Small Objects](https://arxiv.org/pdf/2208.03641v1.pdf)
 
  
