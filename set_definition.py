@@ -1,5 +1,7 @@
 import torch
-from torch.utils.data import DataLoader
+from train import X_train, X_val, Y_train, Y_val
+from test import X_test,Y_test
+
 
 class Trainset(torch.utils.data.Dataset):
   def __init__(self, list_IDs):

@@ -22,10 +22,10 @@ Le dataset utilisé contient 9 millions de sudokus avec leur solutions, et chaqu
 Le modèle utilisé est fortement inspiré du modèle [ResNet50-SPD](https://github.com/LabSAINT/SPD-Conv), lui même inspiré par le modèle du ResNet50 mais adapté aux images de faibles dimensions. Il a alors été modifié pour correspondre à des images de dimension impair, comme c'est le cas pour les sudokus, et sa complexité a été réduite pour un temps de calcul plus rapide. On obtient un modèle de ResNet11-SPD. 
 
 ## Description des fichiers
-`load_data.py` est une fonction qui ouvre le fichier de données, les transforme pour qu'elles soient utilisable par le modèle et les renvoie partagé en données d'entraînement, d'évaluation et de test. \
+`load_data.py` est une fonction qui ouvre le fichier de données, les transforme pour qu'elles soient utilisable par le modèle et les renvoie partagée en données d'entraînement, d'évaluation et de test. \
 `set_definition.py` défini les ensembles d'entraînement, d'évaluation et de test pour que les données soient itérables dans la boucle d'entraînement et de test. \
 `model.py` contient le modèle ResNet11-SPD. \
-`train_test_definition.py` défini les foctions d'entraînement, d'évaluation et de test, ainsi que les 3 métriques utilisées pour évaluer le modèle. \
+`train_test_definition.py` défini les fonctions d'entraînement, d'évaluation et de test, ainsi que les 3 métriques utilisées pour évaluer le modèle. \
 `train.py` est utilisé pour l'entraînement et l'évaluation durant l'entraînement. \
 `test.py` est utilisé pour le test avec l'approche humaine (cf rapport projet). 
 
@@ -44,15 +44,15 @@ Il existe 3 métriques différentes pour l'évaluation du modèle :
 
 ## Résultats
 `accuracy1` : \
-![accuracy1](accuracy1_sudoku_9m.png) \
+![accuracy1](results/accuracy1_sudoku_9m.png) \
 `accuracy2` : \
-![accuracy2](accuracy2_sudoku_9m.png) \
+![accuracy2](results/accuracy2_sudoku_9m.png) \
 `accuracy3` : \
-![accuracy3](accuracy3_sudoku_9m.png) \
+![accuracy3](results/accuracy3_sudoku_9m.png) \
 Pour le test, on utilise une approche différente que pour l'évaluation, une approche plus humaine, on fait tourner le réseau sur une seule case vide à la fois : 
-- `accuracy1 = 0.9545` 
-- `accuracy2 = 0.9226` 
-- `accuracy3 = 0.0885`
+- `accuracy1 = 0.9659` 
+- `accuracy2 = 0.9343` 
+- `accuracy3 = 0.8059`
 
 ## Références 
 Mon projet est beaucoup inspiré des travaux de Raja Sunkara et Tie Luo sur le sujet [No More Strided Convolutions or Pooling: A New CNN Building Block for Low-Resolution Images and Small Objects](https://arxiv.org/pdf/2208.03641v1.pdf)

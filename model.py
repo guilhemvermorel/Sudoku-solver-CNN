@@ -1,5 +1,6 @@
 import pandas as pd
-import numpy as np
+import torch
+import torch.nn as nn
 
 
 
@@ -10,7 +11,7 @@ class space_to_depth(nn.Module):
         self.d = dimension
 
     def forward(self, x):
-      
+        #SPD method but with impair dimensions, then we create 9 subsets and concatenate them
         return torch.cat([x[..., ::3, ::3], x[..., 1::3, ::3], x[..., 2::3, ::3], 
                           x[..., 2::3, 1::3],x[..., 1::3, 1::3], x[..., ::3, 1::3],
                           x[..., ::3, 2::3], x[..., 1::3, 2::3],x[..., 2::3, 2::3]], 1)
@@ -131,8 +132,9 @@ class ResNet(nn.Module):
         return output
 
 def resnet11(channel_init):
-    """ return a ResNet 50 object
+    """ return a ResNet 11 object
     """
+    #a copy of resnet50 but with only 1 convolution for each block and we skip the lasts convolutions 
     return ResNet(BottleNeck, [1, 1, 1, 1],channel_init)
 
 
@@ -162,7 +164,8 @@ def resnet18():
   
   
   
-def save_model():
+def save_model(epoch,model,optimizer,loss_function,train_loss,valid_loss,train_accuracy1,train_accuracy2,train_accuracy3,
+valid_accuracy1,valid_accuracy2,valid_accuracy3):
   torch.save({
             'epoch': epoch,
             'model_state_dict': model.state_dict(),
@@ -181,7 +184,7 @@ def save_model():
   df_save.to_csv('./data.csv')
 
 
-def load_model(): 
+def load_model(model,optimizer,n_epochs): 
   df_load = pd.read_csv('./data.csv')
 
   epochs=[i for i in range(n_epochs)]
@@ -203,3 +206,5 @@ def load_model():
   optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
   depoch = checkpoint['epoch']
   loss_function = checkpoint['loss']
+
+  return epochs,train_loss,valid_loss,train_accuracy1,train_accuracy2,train_accuracy3,valid_accuracy1,valid_accuracy2,valid_accuracy3,depoch,loss_function
