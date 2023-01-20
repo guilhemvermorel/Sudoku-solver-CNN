@@ -5,7 +5,7 @@ Le sudoku est un jeu de grille où le but est de remplir l’ensemble des cases 
 fois sur la même ligne, la même colonne ou la même zone. L’idée de ce rapport est de tester une approche de résolution des sudokus différente de celle qu'on a l'habitude de voir dans les papiers, en le modélisant comme une image 9x9 à faible résolution et d’utiliser une architecture de réseau de neurones à convolution adéquate :
 un ResNet en remplaçant les blocs de pooling par des couches SPD-Conv. Une couche SPD-Conv est composée d’un bloc space-to-death suivi d’une convolution non-strided. En comparant les résultats obtenus avec ceux présents dans les papiers, il s’avère que les accuracys obtenus sont meilleurs pour une complexité plus faible.
 
-Pour mieux comprendre le projet, je vous invite à lire [le rapport associé](\ResNet11-SPD_sudoku_solver.pdf).
+Pour mieux comprendre le projet, je vous invite à lire [le rapport associé](ResNet11-SPD_sudoku_solver.pdf).
 
 Parler des métriques
 
